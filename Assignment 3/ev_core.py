@@ -31,6 +31,7 @@ from mesa.space import NetworkGrid
 from mesa.datacollection import DataCollector
 import networkx as nx
 import numpy as np
+import os
 import random
 from typing import Iterable, List, Dict
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
