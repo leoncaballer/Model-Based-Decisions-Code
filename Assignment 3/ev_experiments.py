@@ -12,7 +12,9 @@ from typing import Callable, Dict, Optional, Tuple, List
 
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')
+from matplotlib import pyplot as plt
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
 
 from ev_core import (
@@ -759,7 +761,7 @@ def main():
         n_nodes=300,
         m=2,
         collect=True,
-        X0_frac=0.40,
+        X0_frac=0.5, # ORIGINAL WAS 0.40
         init_method="random",
         # ER-specific `p` ignored for BA but kept for completeness
         p=0.05,

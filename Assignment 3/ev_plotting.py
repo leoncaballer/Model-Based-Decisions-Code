@@ -12,7 +12,9 @@ from typing import Optional
 
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')
+from matplotlib import pyplot as plt
 
 
 def _default_plot_path(filename: str) -> str:
