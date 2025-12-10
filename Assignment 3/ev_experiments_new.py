@@ -25,6 +25,7 @@ def run_timeseries_trial(
     T: int = 200,
     scenario_kwargs: Optional[Dict] = None,
     seed: Optional[int] = None,
+    return_model=False,
     policy=None,
     strategy_choice_func="imitate",
     tau=1.0,

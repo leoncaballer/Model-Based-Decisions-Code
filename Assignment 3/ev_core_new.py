@@ -9,6 +9,7 @@ from mesa.time import SimultaneousActivation
 from mesa.space import NetworkGrid
 from mesa.datacollection import DataCollector
 import networkx as nx
+import math
 import numpy as np
 import os
 import random
@@ -125,9 +126,26 @@ class EVStagHuntModel(Model):
 
         # Build graph
         if network_type == "BA":
+            # Scale-free Barabási–Albert
             G = nx.barabasi_albert_graph(n_nodes, m, seed=seed)
+
+        elif network_type == "grid":
+            # 2D L×L grid, L chosen to give ~n_nodes
+            L = int(round(math.sqrt(n_nodes)))
+            G = nx.grid_2d_graph(L, L)
+
+            # Relabel (i, j) → 0..N-1 so the rest of the code still works
+            mapping = {node: i for i, node in enumerate(G.nodes())}
+            G = nx.relabel_nodes(G, mapping)
+
+        elif network_type == "WS":
+            # Watts–Strogatz small-world
+            k = 4          # each node initially connected to k neighbours
+            G = nx.watts_strogatz_graph(n_nodes, k, p, seed=seed)
+
         else:
-            G = nx.erdos_renyi_graph(n_nodes, p, seed=seed)
+            # Default: Erdős–Rényi random graph (“random” / “ER”)
+            G = nx.erdos_renyi_graph(n_nodes, p=p, seed=seed)
 
         self.G = G
         self.grid = NetworkGrid(G)
