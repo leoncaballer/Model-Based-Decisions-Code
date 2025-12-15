@@ -28,7 +28,7 @@ Other packages related to the assignment, such as:
 - `ev_experiments`
 - `ev_plotting`
 
-are assumed to be present.
+are assumed to be present already.
 
 ## Usage
 
