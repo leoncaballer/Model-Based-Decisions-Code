@@ -54,7 +54,6 @@ and the seeds easy to change. The location of each seed is shown with a comment.
 |`ratio`             | `2.3`            | Scaling factor of adoption and infrastructure dynamics.        |
 | $`b`$                 | `1.0`            | Baseline adoption or payoff parameter.                         |
 | $`g_I`$             | `0.005`          | Infrastructure growth/decay rate.                              |
-| $`m`$               | `2`              | Number of edges added per node in BA network construction.     |
 |`intervention_time` | `None` or varied | Time step at which an external intervention is applied.        |
 |`intervention_frac` | Varied           | Fractional strength of the intervention.                       |
 | $`\tau`$               | `3.0`            | Temperature of softmax function                                |
